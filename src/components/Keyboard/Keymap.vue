@@ -17,9 +17,10 @@
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import KeyLabel from './Key.vue'
+import KeyLabel from './KeyLabel.vue'
+import { KeyDefinition } from './types'
 
-const keys = [
+const keys: KeyDefinition[] = [
   {
     ledIndex: 0,
     keymapIndex: 0,

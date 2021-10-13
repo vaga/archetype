@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { createAPI } from './api'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from './views/HomeView.vue'
+import HomeView from './views/HomeView'
 import ShowView from './views/ShowView.vue'
 
 const app = createApp(App)
@@ -15,8 +15,8 @@ app.use(
   createRouter({
     history: createWebHistory(),
     routes: [
-      { path: '/', component: HomeView },
-      { path: '/:id', component: ShowView, props: true },
+      { name: 'home', path: '/', component: HomeView },
+      { name: 'profile', path: '/:id', component: ShowView, props: true },
     ],
   })
 )

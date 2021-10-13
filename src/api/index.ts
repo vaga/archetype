@@ -42,7 +42,7 @@ export function createAPI(secret: string) {
       const response = await client.query(
         faunadb.query.Get(
           faunadb.query.Ref(
-            faunadb.query.Collection(COLLECTION),
+           faunadb.query.Collection(COLLECTION),
             id,
           )
         )

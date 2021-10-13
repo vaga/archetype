@@ -5,28 +5,30 @@
   <div v-else-if="profile === null">
     Loading...
   </div>
-  <div v-else>
-    <h1>{{ profile.name }} by {{ profile.author }}</h1>
-    <select
-      class="app-select"
-      v-model="layerIndex"
-    >
-      <option
-        v-for="index in layerIndexes"
-        :key="index"
-        :value="index"
+  <section v-else>
+    <header class="profile-header">
+      <h3>{{ profile.name }} by {{ profile.author }}</h3>
+      <select
+        class="profile-select"
+        v-model="layerIndex"
       >
-        Layer {{ index }}
-      </option>
-    </select>
-    <div class="app-keyboard">
+        <option
+          v-for="index in layerIndexes"
+          :key="index"
+          :value="index"
+        >
+          Layer {{ index }}
+        </option>
+      </select>
+    </header>
+    <div class="profile-keyboard">
       <keyboard
         :keymap="profile.layers.keymap.custom[layerIndex]"
         :colormap="profile.layers.colormap[layerIndex]"
         :palette="profile.layers.palette"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -75,14 +77,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.app-select {
-  margin: 16px;
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.app-keyboard {
-  width: 900px;
+.profile-keyboard {
   padding: 32px;
-  margin: 16px;
-  border: 1px solid #000;
+  border: 1px solid #ddd;
 }
 </style>
