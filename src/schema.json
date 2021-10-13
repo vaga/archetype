@@ -1,0 +1,115 @@
+{
+    "title": "Dygma Raise layers",
+    "type": "object",
+    "required": ["keymap", "colormap", "palette"],
+    "properties": {
+        "keymap": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["onlyCustom", "custom", "default"],
+            "properties": {
+                "onlyCustom": {
+                    "type": "boolean"
+                },
+                "custom": {
+                    "type": "array",
+                    "minItems": 10,
+                    "maxItems": 10,
+                    "items": {
+                        "type": "array",
+                        "minItems": 80,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "keyCode": {
+                                    "type": "integer"
+                                },
+                                "label": {
+                                    "type": "string"
+                                },
+                                "verbose": {
+                                    "type": "string"
+                                },
+                                "extraLabel": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["keyCode", "label"]
+                        }
+                    }
+                },
+                "default": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 10,
+                    "items": {
+                        "type": "array",
+                        "minItems": 80,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "keyCode": {
+                                    "type": "integer"
+                                },
+                                "label": {
+                                    "type": "string"
+                                },
+                                "verbose": {
+                                    "type": "string"
+                                },
+                                "extraLabel": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["keyCode", "label"]
+                        }
+                    }
+                }
+            }
+        },
+        "colormap": {
+            "type": "array",
+            "minItems": 10,
+            "maxItems": 10,
+            "items": {
+                "type": "array",
+                "minItems": 132,
+                "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 15
+                }
+            }
+        },
+        "palette": {
+            "type": "array",
+            "minItems": 16,
+            "maxItems": 16,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["r", "g", "b", "rgb"],
+                "properties": {
+                    "r": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                    },
+                    "g": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                    },
+                    "b": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                    },
+                    "rgb": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
