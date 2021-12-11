@@ -22,11 +22,9 @@
       </select>
     </header>
     <div class="profile-keyboard">
-      <keyboard
-        :keymap="profile.layers.keymap.custom[layerIndex]"
-        :colormap="profile.layers.colormap[layerIndex]"
-        :palette="profile.layers.palette"
-      />
+      <svg viewBox="0 0 2400 900" width="100%">
+        <keymap :layout="layout" />
+      </svg>
     </div>
   </section>
 </template>
@@ -34,13 +32,16 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
 import Keyboard from '../components/Keyboard'
+import Keymap from '../components/Keyboard/Keymap.vue'
 import { useAPI } from '../api'
+import { getLayout, LayoutItemType, KeyboardLayoutType } from '../components/Keyboard/layout'
 
 export default defineComponent({
   name: 'App',
 
   components: {
     Keyboard,
+    Keymap,
   },
 
   props: {
@@ -66,11 +67,27 @@ export default defineComponent({
       error.value = 'not-found'
     })
 
+    const layout = computed(() => {
+      const layout = getLayout(KeyboardLayoutType.Ansi)
+      return layout.map(line => line.map(keycap => {
+        if (keycap.type === LayoutItemType.Spacing) {
+          return keycap
+        }
+
+        return {
+          ...keycap,
+          label: profile.value?.layers.keymap.custom[layerIndex.value][keycap.id].label,
+        }
+      }))
+    })
+
+
     return {
       profile,
       error,
       layerIndex,
       layerIndexes,
+      layout,
     }
   },
 })

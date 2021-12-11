@@ -7,7 +7,6 @@
       :keymap="keymap"
       :colormap="colormap"
       :palette="palette"
-      @click="$emit('click', $event)"
     />
     <underglow
       :colormap="colormap"
@@ -48,7 +47,5 @@ export default defineComponent({
         required: true,
       },
     },
-
-    emits: ['click'],
 })
 </script>

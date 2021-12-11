@@ -1,17 +1,17 @@
 <template>
   <header class="app-header">
     <router-link :to="{ name: 'home' }">
-    <svg xmlns="http://www.w3.org/2000/svg" height="75" viewBox="0 0 67.777 74.128">
-      <defs>
-        <linearGradient id="gradient" x1="-0.621" y1="0.407" x2="1.648" y2="0.409" gradientUnits="objectBoundingBox">
-          <stop offset="0" stop-color="#fe127c"/>
-          <stop offset="1" stop-color="#6b1af7"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,0,29.663,19.34V74.128L0,54.788Z" fill="#fe007c"/>
-      <path d="M0,0,29.663,19.34V74.128L0,54.788Z" transform="translate(19.057)" fill="url(#gradient)"/>
-      <path d="M0,0,29.663,19.34V74.128L0,54.788Z" transform="translate(38.113)" fill="#6b14f9"/>
-    </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="75" viewBox="0 0 67.777 74.128">
+        <defs>
+          <linearGradient id="gradient" x1="-0.621" y1="0.407" x2="1.648" y2="0.409" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fe127c"/>
+            <stop offset="1" stop-color="#6b1af7"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,0,29.663,19.34V74.128L0,54.788Z" fill="#fe007c"/>
+        <path d="M0,0,29.663,19.34V74.128L0,54.788Z" transform="translate(19.057)" fill="url(#gradient)"/>
+        <path d="M0,0,29.663,19.34V74.128L0,54.788Z" transform="translate(38.113)" fill="#6b14f9"/>
+      </svg>
     </router-link>
     <div>
       <h1 class="app-title">Archetype</h1>
